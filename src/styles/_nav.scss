@@ -1,0 +1,37 @@
+@mixin flexCenter($direction, $justify) {
+    
+    display: flex;
+    justify-content: $justify;
+    align-items: center;
+    flex-direction: $direction;
+}
+
+.nav {
+    @include flexCenter(row, space-evenly);
+    width: 100vw;
+    height: 150px;
+    background: rgb(109, 109, 190);
+    font-family: $mainFont;
+    h1 {
+        font-size: 36px;
+    }
+
+    .greeting {
+        font-family: 'Questrial', sans-serif;
+    }
+
+    .logged-in {
+        @include flexCenter(row, space-between);
+        width: 250px;
+        margin-top: 8px;
+        margin-left: 20px;
+        
+    }
+
+    button {
+        background: $primaryBtn;
+        &:hover {
+            background: purple;
+        }
+    }
+}

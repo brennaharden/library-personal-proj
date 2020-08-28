@@ -1,0 +1,5 @@
+.login {
+    @include flexCenter(column, space-evenly);
+    height: calc(100vh - 150px);
+    font-family: $mainFont;
+}

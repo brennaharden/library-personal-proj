@@ -6,6 +6,7 @@ import Catalog from './components/Catalog/Catalog';
 import Dash from './components/Dash/Dash';
 import RegForm from './components/RegForm/RegForm';
 import Settings from './components/Settings/Settings';
+import Results from './components/Results/Results';
 
 export default (
     <Switch>
@@ -15,5 +16,6 @@ export default (
         <Route path="/catalog" component={Catalog}/>
         <Route path="/account" component={Account}/>
         <Route path="/settings" component={Settings}/>
+        <Route path="/results" component={Results}/>
     </Switch>
 );

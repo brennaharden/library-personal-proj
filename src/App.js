@@ -1,7 +1,8 @@
 import React from 'react';
 import Nav from './components/Nav/Nav'
 import routes from './routes.js';
-import './App.css';
+import './reset.css';
+import './styles/app.css';
 
 function App() {
   return (

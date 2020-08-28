@@ -1,4 +1,10 @@
 import authReducer from './authReducer';
-import {createStore} from 'redux';
+import searchReducer from './searchReducer';
+import {createStore, combineReducers} from 'redux';
 
-export default createStore(authReducer)
+const rootReducer = combineReducers({
+    user: authReducer,
+    results: searchReducer
+})
+
+export default createStore(rootReducer)

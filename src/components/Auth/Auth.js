@@ -1,11 +1,14 @@
 import React, {useState} from 'react';
+import {Link} from 'react-router-dom';
 import {useDispatch} from 'react-redux';
+import {useHistory} from 'react-router-dom';
 import {loginUser} from '../../ducks/authReducer';
 import axios from 'axios';
 
 function Auth() {
     
     const dispatch = useDispatch()
+    const history = useHistory()
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [pin, setPin] = useState('')
@@ -15,6 +18,7 @@ function Auth() {
     const handleLogin = () => {
         axios.post('/auth/login', {email, password, cardNum, pin}).then((res) => {
         dispatch(loginUser(res.data))
+        history.push('/')
         }).catch(err => {
             console.log(err)
             alert('Could not log in.')
@@ -22,8 +26,8 @@ function Auth() {
     }
     
     return (
-        <div>
-            <h1>Auth</h1>
+        <div className='login'>
+            <h1>Welcome!</h1>
             <input
                 placeholder='Email'
                 value={email}
@@ -42,7 +46,9 @@ function Auth() {
                 value={pin}
                 onChange={(e) => setPin(e.target.value)}/>
             
-            <button onClick={handleLogin}>SUBMIT</button>
+            <button onClick={handleLogin}>LOGIN</button>
+            <p>New to DPL?<br/>Create an account today!</p>
+            <button><Link to="/register">NEW PATRON</Link></button>
         </div>
     )
 }

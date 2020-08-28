@@ -1,10 +1,12 @@
 import React, {useState} from 'react';
 import {useDispatch} from 'react-redux';
+import {useHistory} from 'react-router-dom';
 import {loginUser} from '../../ducks/authReducer';
 import axios from 'axios';
 
 function RegForm() {
     const dispatch = useDispatch()
+    const history = useHistory()
     const [firstName, setFirstName] = useState('')
     const [lastName, setLastName] = useState('')
     const [email, setEmail] = useState('')
@@ -15,6 +17,7 @@ function RegForm() {
     const handleRegister = () => {
         axios.post('/auth/register', {firstName, lastName, email, password, pin, resident}).then((res) => {
         dispatch(loginUser(res.data))
+        history.push("/account")
         }).catch(err => {
             console.log(err)
             alert('Could not complete the registration process.')
@@ -22,7 +25,7 @@ function RegForm() {
     }
         
     return (
-        <div>
+        <div className="reg">
             <h1>RegForm</h1>
             <input 
                 placeholder='First Name'
