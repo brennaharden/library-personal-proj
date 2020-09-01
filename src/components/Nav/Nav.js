@@ -6,7 +6,7 @@ import axios from 'axios';
 
 function Nav() {
     const dispatch = useDispatch()
-    const {user} = useSelector((state) => state)
+    const {user} = useSelector((state) => state.authReducer)
 
     useEffect(() => {
         dispatch(getUser())

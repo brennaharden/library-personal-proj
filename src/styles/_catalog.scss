@@ -1,0 +1,32 @@
+.catalog {
+    @include flexCenter(column, center);
+    font-family: 'Questrial', sans-serif;
+    h1 {
+        font-size: 30px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+}
+.book {
+    display: flex;
+    height: fit-content;
+    width: 600px;;
+    font-family: $mainFont;
+    border: solid 1px;
+    margin: 10px;
+    h1 {
+        font-size: 24px;
+    }
+    h2 {
+        font-size: 20px;
+    }
+    img {
+        width: 125px;
+        margin: 15px;
+    }
+    .info {
+        display: flex;
+        flex-direction: column;
+        padding: 15px;
+    }
+}
