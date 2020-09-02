@@ -5,6 +5,8 @@ const session = require('express-session');
 const app = express();
 const {CONNECTION_STRING, SESSION_SECRET, SERVER_PORT} = process.env
 const authCtrl = require('./authController');
+const holdCtrl = require('./holdController');
+
 app.use(express.json());
 app.use(session({
     resave: false,
@@ -27,6 +29,8 @@ app.post('/auth/register', authCtrl.register)
 app.post('/auth/login', authCtrl.login)
 app.post('/auth/logout', authCtrl.logout)
 app.get('/auth/user', authCtrl.getUser)
-
+app.post('/api/hold', holdCtrl.placeHold)
+app.get('/api/holds/:id', holdCtrl.getHolds)
+app.delete('/api/holds/:holdId/:id', holdCtrl.deleteHold)
 
 app.listen(SERVER_PORT, () => console.log(`talking bout me & you in ${SERVER_PORT}`))

@@ -7,9 +7,17 @@ import axios from 'axios';
 function Nav() {
     const dispatch = useDispatch()
     const {user} = useSelector((state) => state.authReducer)
+    
 
     useEffect(() => {
-        dispatch(getUser())
+        axios.get('/auth/user').then(res => {
+            console.log(res.data)
+            dispatch(getUser(res.data))
+        }).catch(err => {
+            if (err.response.status !== 401) {
+                console.log(err)
+            }
+        })
     }, [dispatch])
 
     const handleLogout = () => {
@@ -21,6 +29,7 @@ function Nav() {
     
     return (
         <div className='nav'>
+            {console.log(user)}
             <h2><Link to="/">Home Logo</Link></h2>
             <div className='greeting'>
                 <h1>Denton Public Library</h1>

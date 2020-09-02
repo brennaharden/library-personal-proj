@@ -20,7 +20,7 @@ function Catalog() {
             }
             console.log(listArray)
             setInventory(listArray)
-        }) 
+        }).catch(err => console.log(err))
     }, [])
 
 
@@ -31,17 +31,24 @@ function Catalog() {
         setResults(inventory.filter(item => item.title.match(regex)).filter(item => item.author_fl.match(regex2)).filter(item => item.book_id.match(regex3)))
         setSearching(true)
     }
+    const clear = () => {
+        setTitle('')
+        setAuthor('')
+        setIsbn('')
+        setSearching(false)
+    }
+    
     
     
     return (
         
         <div className="catalog">
             <h1>Search our Collection</h1>
-            <input name={titleSearch} placeholder="Title" onChange={(e) => setTitle(e.target.value)}/>
-            <input name={authorSearch} placeholder="Author" onChange={(e) => setAuthor(e.target.value)}/>
-            <input name={isbnSearch} placeholder="ISBN" onChange={(e) => setIsbn(e.target.value)}/>
+            <input name="titleSearch" value={titleSearch} placeholder="Title" onChange={(e) => setTitle(e.target.value)}/>
+            <input name="authorSearch" value={authorSearch} placeholder="Author" onChange={(e) => setAuthor(e.target.value)}/>
+            <input name="isbnSearch" value={isbnSearch} placeholder="ISBN" onChange={(e) => setIsbn(e.target.value)}/>
             <button onClick={search}>SEARCH</button>
-            <button>CLEAR ALL</button>
+            <button onClick={clear}>CLEAR ALL</button>
             {searching ? (
                 <div>{results.map(book => <Book key={book.book_id} book={book}/>)}</div>)
                 : <div>{inventory.map(book => <Book key={book.book_id} book={book}/>)}</div>

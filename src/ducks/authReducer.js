@@ -1,3 +1,5 @@
+
+
 const initialState = {
     user: {}
 }
@@ -14,9 +16,10 @@ export function loginUser(payload){
 }
 
 export function getUser(payload){
+        console.log(payload)
     return {
         type: GET_USER,
-        payload
+        payload: payload
     }
 }
 export function logoutUser(){
@@ -31,12 +34,12 @@ export default function reducer(state = initialState, action){
     switch(type){
         case LOGIN_USER:
             return {...state, user: payload}
-        case GET_USER + "_PENDING":
-            return state
-        case GET_USER + "_FULFILLED":
-            return {...state, user: payload.data}
-        case GET_USER + "_REJECTED":
-            return initialState
+        // case GET_USER + "_PENDING":
+        //     return state
+        case GET_USER:
+            return {...state, user: payload}
+        // case GET_USER + "_REJECTED":
+        //     return initialState
         case LOGOUT_USER:
             return {...state, ...payload}
         default:

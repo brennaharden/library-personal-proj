@@ -12,7 +12,7 @@ function Auth() {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [pin, setPin] = useState('')
-    const [cardNum, setCardNum] = useState(0)
+    const [cardNum, setCardNum] = useState('')
 
 
     const handleLogin = () => {
@@ -34,6 +34,7 @@ function Auth() {
                 onChange={(e) => setEmail(e.target.value)}/>
             <input
                 placeholder='Password'
+                type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}/>
             <h1>OR</h1>
@@ -44,6 +45,7 @@ function Auth() {
             <input
                 placeholder='4 Digit Pin'
                 value={pin}
+                type="password"
                 onChange={(e) => setPin(e.target.value)}/>
             
             <button onClick={handleLogin}>LOGIN</button>

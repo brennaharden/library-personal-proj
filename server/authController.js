@@ -57,7 +57,7 @@ module.exports = {
                 console.log(req.session.user)
                 res.status(200).send(req.session.user)
             } else {
-                 res.status(403).send('Invalid credentials')
+                 res.status(401).send('Invalid credentials')
             }
     },
     logout: (req, res) => {
@@ -69,7 +69,7 @@ module.exports = {
         if(req.session.user){
             res.status(200).send(req.session.user)
         } else {
-            res.sendStatus(404)
+            res.sendStatus(401)
         }
     }
 }

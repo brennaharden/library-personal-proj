@@ -17,8 +17,12 @@ CREATE TABLE patron(
     branch_display BOOLEAN
 );
 
--- CREATE TABLE holds(
---     hold_id SERIAL PRIMARY KEY,
---     user_id INT
-
--- );
+CREATE TABLE holds(
+    id SERIAL PRIMARY KEY,
+    user_id INT REFERENCES patron(card_num) NOT NULL,
+    book_id INT NOT NULL,
+    title TEXT,
+    author_fl VARCHAR(45),
+    cover TEXT,
+    isbn TEXT
+);
