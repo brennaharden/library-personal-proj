@@ -6,6 +6,8 @@ const app = express();
 const {CONNECTION_STRING, SESSION_SECRET, SERVER_PORT} = process.env
 const authCtrl = require('./authController');
 const holdCtrl = require('./holdController');
+const setCtrl = require('./setController');
+
 
 app.use(express.json());
 app.use(session({
@@ -32,5 +34,7 @@ app.get('/auth/user', authCtrl.getUser)
 app.post('/api/hold', holdCtrl.placeHold)
 app.get('/api/holds/:id', holdCtrl.getHolds)
 app.delete('/api/holds/:holdId/:id', holdCtrl.deleteHold)
+app.get('/api/signs3', setCtrl.config)
+app.put('/api/user', setCtrl.saveUrl)
 
 app.listen(SERVER_PORT, () => console.log(`talking bout me & you in ${SERVER_PORT}`))

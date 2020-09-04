@@ -255,4 +255,11 @@
   right: 10px;
   margin-top: 10px;
 }
+
+.dropzone {
+  height: 300px;
+  width: 300px;
+  border: dashed, 3px;
+  background-color: #b1afaf;
+}
 /*# sourceMappingURL=app.css.map */
