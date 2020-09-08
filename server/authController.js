@@ -16,7 +16,8 @@ module.exports = {
             id: newPatron.card_num,
             firstName: newPatron.first_name,
             lastName: newPatron.last_name,
-            email: newPatron.email
+            email: newPatron.email,
+            img: newPatron.img
         }
         console.log(req.session.user)
         res.status(200).send(req.session.user)
@@ -52,7 +53,8 @@ module.exports = {
                 id: patron.card_num,
                 firstName: patron.first_name,
                 lastName: patron.last_name,
-                email: patron.email
+                email: patron.email,
+                img: patron.img
                     }
                 console.log(req.session.user)
                 res.status(200).send(req.session.user)

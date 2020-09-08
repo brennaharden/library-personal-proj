@@ -10,10 +10,70 @@
     @include flexCenter(row, space-evenly);
     width: 100vw;
     height: 150px;
-    background: rgb(109, 109, 190);
+    background: rgb(117, 154, 184);
     font-family: $mainFont;
+    color: white;
+    .logo-box {
+        height: 120px;
+        width: 120px;
+        background-image: linear-gradient(25deg, #ff8652 10%, #eb4444 10%, #eb4444 20%, #d67b71 20%, #d67b71 30%, #ffb190 30%, #ffb190 40%, #f2994a 40%, #f2994a 50%, #ff8652 50%, #ff8652 60%, #eb4444 60%, #eb4444 70%, #d67b71 70%, #d67b71 80%, #ffb190 80%, #ffb190 90%, #f2994a 90%, #f2994a 100%);
+        border-bottom-left-radius: 50px;
+        border-top-right-radius: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .letters {
+        position: relative;
+        width: 80%;
+        height: 80%;
+        border: 6px solid white;
+        border-bottom-left-radius: 50px;
+        border-top-right-radius: 50px;
+        display: flex;
+        justify-content: center;
+      }
+      
+      .d {
+        position: absolute;
+        top: 0;
+        left: 40px;
+        height: 70%;
+        width: 5px;
+        background-color: white;
+        &::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            height: 30px;
+            width: 30px;
+            border-radius: 50px;
+            border: 5px solid white;
+          }
+      }
+      
+      .p {
+        position: absolute;
+        bottom: 0;
+        right: 40px;
+        height: 70%;
+        width: 5px;
+        background-color: white;
+        &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 30px;
+            width: 30px;
+            border-radius: 50px;
+            border: 5px solid white;
+          }
+      }
+    
     h1 {
-        font-size: 36px;
+        font-size: 42px;
     }
 
     .greeting {
@@ -22,6 +82,7 @@
 
     .logged-in {
         @include flexCenter(row, space-between);
+        position: relative;
         width: 250px;
         margin-top: 8px;
         margin-left: 20px;
@@ -29,9 +90,21 @@
     }
 
     button {
-        background: $primaryBtn;
+        
+        border: 1px solid rgb(18, 97, 170);
+        border-radius: 0.25rem;
+        background: rgb(117, 154, 184);
+        line-height: 1.2;
+        white-space: nowrap;
+        text-decoration: none;
+        padding: 0.25rem 0.5rem;
+        margin: 0.25rem;
+        cursor: pointer;
+        font-family: 'Questrial', sans-serif;
+        color: white;
         &:hover {
-            background: purple;
+            background: #d67b71;
+            border-color: rgb(131, 63, 131);
         }
     }
 }

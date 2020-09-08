@@ -5,11 +5,11 @@ import {useSelector} from 'react-redux';
 import {useDropzone} from 'react-dropzone';
 
 function Settings() {
-    const [imgUrl, setUrl] = useState('https://www.midlandcareconnection.org/wp-content/uploads/cropped-placeholder.jpg')
-    const [isUploading, setUploading] = useState(false)
-    
     const {user} = useSelector((state) => state.authReducer)
-    const {id} = user
+    const {id, img} = user
+    const [imgUrl, setUrl] = useState(`${img}`)
+    const [isUploading, setUploading] = useState(false)
+ 
     const {getRootProps, getInputProps} = useDropzone({
         accept: "image/*",
         multiple: false,

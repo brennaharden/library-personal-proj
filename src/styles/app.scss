@@ -7,11 +7,62 @@ $mainFont : 'Roboto', sans-serif;
     align-items: baseline;
     flex-direction: $direction;
 }
+@mixin left-point {
+    border-bottom-left-radius: 50px;
+    border-top-right-radius: 50px;
+    &::before{
+        transform: scale(0, 1);
+        border-top: 2px solid white;
+        border-right: 2px solid white;
+        border-top-right-radius: 50px;
+    }
+    
+    &::after{  
+        transform: scale(1, 0);
+        border-left: 2px solid white;
+        border-bottom: 2px solid white;
+        border-bottom-left-radius: 50px;
+    }
 
+    &:hover::before {
+        transform: scale(1, 1);
+    }
+    
+    &:hover::after {
+        transform: scale(1, 1);
+    }
+}
+@mixin right-point {
+    border-bottom-right-radius: 50px;
+    border-top-left-radius: 50px;
+    &::before{
+        transform: scale(0, 1);
+        border-top: 2px solid white;
+        border-left: 2px solid white;
+        border-top-left-radius: 50px;
+    }
+    
+    &::after{  
+        transform: scale(1, 0);
+        border-right: 2px solid white;
+        border-bottom: 2px solid white;
+        border-bottom-right-radius: 50px;
+    }
+
+    &:hover::before {
+        transform: scale(1, 1);
+    }
+    
+    &:hover::after {
+        transform: scale(1, 1);
+    }
+}
 
 @import './nav';
+@import './dash';
 @import './login';
 @import './register';
 @import './catalog';
 @import './account';
+
 

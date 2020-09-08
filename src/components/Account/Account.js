@@ -8,7 +8,7 @@ import Hold from '../Hold/Hold';
 function Account() {
     const {user} = useSelector((state) => state.authReducer)
     const {holds} = useSelector((state) => state.holdReducer)
-    const {id} = user
+    const {id, img} = user
     const dispatch = useDispatch()
     useEffect(() => {
         if (id) {
@@ -31,7 +31,7 @@ function Account() {
         <div className="account">
             <header>My Account</header>
             <div className="big-boy">
-                <div className="make-changes"><Link to="/settings">Settings</Link></div>
+            <Link to="/settings"><img className="make-changes" alt="click for settings"src={img}/></Link>
                 <div className="hold-container">
                     <h1>CURRENT HOLDS</h1>
                     {holds.map(hold => <Hold key={hold.id} hold={hold} delete={deleteHold}/>)}

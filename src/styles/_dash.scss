@@ -1,0 +1,105 @@
+.dash {
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    height: calc(100vh - 150px);
+    background-color: rgb(7, 40, 71);
+    padding-top: 10px;
+}
+.grid {
+    height: 100%;
+    width: 1200px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.cell {
+    height: 275px;
+    width: 400px;
+    margin: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background-color: #ad7baf;
+    cursor: pointer;
+    -webkit-box-shadow: 0px 5px 36px 4px rgba(4,1,22,1);
+    box-shadow: 0px 5px 36px 4px rgba(4, 1, 22, 1);
+
+    &#child {
+        @include left-point()
+    }
+    &#teen {
+        @include right-point()
+    }
+    &#adult {
+        @include right-point()
+    }
+    &#senior {
+        @include left-point()
+    }
+    
+    &:hover .cell-img {
+        opacity: 0.4;
+    }
+    &:hover .card-title {
+        opacity: 1;
+    }
+
+    &::before,
+    &::after {
+        content: '';
+        position: absolute;
+        top: 1.25em;
+        bottom: 1.25em;
+        right: 1.25em;
+        left: 1.25em;
+        opacity: 1;
+        transition: transform ease-out 250ms;
+    }
+}
+
+.cell-img {
+    position: relative;
+    object-fit: cover;
+    height: 275px;
+    width: 400px;
+    transition: opacity ease-out 250ms;
+    &#child {
+        object-fit: cover;
+        object-position: left bottom;
+        border-bottom-left-radius: 50px;
+        border-top-right-radius: 50px;
+    }
+    &#teen {
+        object-fit: cover;
+        object-position: right bottom;
+        border-bottom-right-radius: 50px;
+        border-top-left-radius: 50px;
+    }
+    &#adult {
+        border-bottom-right-radius: 50px;
+        border-top-left-radius: 50px;
+    }
+    &#senior {
+        border-bottom-left-radius: 50px;
+        border-top-right-radius: 50px;
+    }
+
+}
+
+.card-title {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-family: $mainFont;
+    h2 {
+        font-size: 32px;
+    }
+    font-weight: 700;
+    opacity: 0;
+    transition: opacity ease-out 250ms;
+}

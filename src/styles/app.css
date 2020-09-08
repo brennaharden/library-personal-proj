@@ -14,12 +14,85 @@
           flex-direction: row;
   width: 100vw;
   height: 150px;
-  background: #6d6dbe;
+  background: #759ab8;
   font-family: "Roboto", sans-serif;
+  color: white;
+}
+
+.nav .logo-box {
+  height: 120px;
+  width: 120px;
+  background-image: linear-gradient(25deg, #ff8652 10%, #eb4444 10%, #eb4444 20%, #d67b71 20%, #d67b71 30%, #ffb190 30%, #ffb190 40%, #f2994a 40%, #f2994a 50%, #ff8652 50%, #ff8652 60%, #eb4444 60%, #eb4444 70%, #d67b71 70%, #d67b71 80%, #ffb190 80%, #ffb190 90%, #f2994a 90%, #f2994a 100%);
+  border-bottom-left-radius: 50px;
+  border-top-right-radius: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.nav .letters {
+  position: relative;
+  width: 80%;
+  height: 80%;
+  border: 6px solid white;
+  border-bottom-left-radius: 50px;
+  border-top-right-radius: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.nav .d {
+  position: absolute;
+  top: 0;
+  left: 40px;
+  height: 70%;
+  width: 5px;
+  background-color: white;
+}
+
+.nav .d::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 30px;
+  width: 30px;
+  border-radius: 50px;
+  border: 5px solid white;
+}
+
+.nav .p {
+  position: absolute;
+  bottom: 0;
+  right: 40px;
+  height: 70%;
+  width: 5px;
+  background-color: white;
+}
+
+.nav .p::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 30px;
+  width: 30px;
+  border-radius: 50px;
+  border: 5px solid white;
 }
 
 .nav h1 {
-  font-size: 36px;
+  font-size: 42px;
 }
 
 .nav .greeting {
@@ -40,17 +113,282 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+  position: relative;
   width: 250px;
   margin-top: 8px;
   margin-left: 20px;
 }
 
 .nav button {
-  background: #0a6e6e;
+  border: 1px solid #1261aa;
+  border-radius: 0.25rem;
+  background: #759ab8;
+  line-height: 1.2;
+  white-space: nowrap;
+  text-decoration: none;
+  padding: 0.25rem 0.5rem;
+  margin: 0.25rem;
+  cursor: pointer;
+  font-family: 'Questrial', sans-serif;
+  color: white;
 }
 
 .nav button:hover {
-  background: purple;
+  background: #d67b71;
+  border-color: #833f83;
+}
+
+.dash {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100vw;
+  height: calc(100vh - 150px);
+  background-color: #072847;
+  padding-top: 10px;
+}
+
+.grid {
+  height: 100%;
+  width: 1200px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.cell {
+  height: 275px;
+  width: 400px;
+  margin: 25px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  background-color: #ad7baf;
+  cursor: pointer;
+  -webkit-box-shadow: 0px 5px 36px 4px #040116;
+  box-shadow: 0px 5px 36px 4px #040116;
+}
+
+.cell#child {
+  border-bottom-left-radius: 50px;
+  border-top-right-radius: 50px;
+}
+
+.cell#child::before {
+  -webkit-transform: scale(0, 1);
+          transform: scale(0, 1);
+  border-top: 2px solid white;
+  border-right: 2px solid white;
+  border-top-right-radius: 50px;
+}
+
+.cell#child::after {
+  -webkit-transform: scale(1, 0);
+          transform: scale(1, 0);
+  border-left: 2px solid white;
+  border-bottom: 2px solid white;
+  border-bottom-left-radius: 50px;
+}
+
+.cell#child:hover::before {
+  -webkit-transform: scale(1, 1);
+          transform: scale(1, 1);
+}
+
+.cell#child:hover::after {
+  -webkit-transform: scale(1, 1);
+          transform: scale(1, 1);
+}
+
+.cell#teen {
+  border-bottom-right-radius: 50px;
+  border-top-left-radius: 50px;
+}
+
+.cell#teen::before {
+  -webkit-transform: scale(0, 1);
+          transform: scale(0, 1);
+  border-top: 2px solid white;
+  border-left: 2px solid white;
+  border-top-left-radius: 50px;
+}
+
+.cell#teen::after {
+  -webkit-transform: scale(1, 0);
+          transform: scale(1, 0);
+  border-right: 2px solid white;
+  border-bottom: 2px solid white;
+  border-bottom-right-radius: 50px;
+}
+
+.cell#teen:hover::before {
+  -webkit-transform: scale(1, 1);
+          transform: scale(1, 1);
+}
+
+.cell#teen:hover::after {
+  -webkit-transform: scale(1, 1);
+          transform: scale(1, 1);
+}
+
+.cell#adult {
+  border-bottom-right-radius: 50px;
+  border-top-left-radius: 50px;
+}
+
+.cell#adult::before {
+  -webkit-transform: scale(0, 1);
+          transform: scale(0, 1);
+  border-top: 2px solid white;
+  border-left: 2px solid white;
+  border-top-left-radius: 50px;
+}
+
+.cell#adult::after {
+  -webkit-transform: scale(1, 0);
+          transform: scale(1, 0);
+  border-right: 2px solid white;
+  border-bottom: 2px solid white;
+  border-bottom-right-radius: 50px;
+}
+
+.cell#adult:hover::before {
+  -webkit-transform: scale(1, 1);
+          transform: scale(1, 1);
+}
+
+.cell#adult:hover::after {
+  -webkit-transform: scale(1, 1);
+          transform: scale(1, 1);
+}
+
+.cell#senior {
+  border-bottom-left-radius: 50px;
+  border-top-right-radius: 50px;
+}
+
+.cell#senior::before {
+  -webkit-transform: scale(0, 1);
+          transform: scale(0, 1);
+  border-top: 2px solid white;
+  border-right: 2px solid white;
+  border-top-right-radius: 50px;
+}
+
+.cell#senior::after {
+  -webkit-transform: scale(1, 0);
+          transform: scale(1, 0);
+  border-left: 2px solid white;
+  border-bottom: 2px solid white;
+  border-bottom-left-radius: 50px;
+}
+
+.cell#senior:hover::before {
+  -webkit-transform: scale(1, 1);
+          transform: scale(1, 1);
+}
+
+.cell#senior:hover::after {
+  -webkit-transform: scale(1, 1);
+          transform: scale(1, 1);
+}
+
+.cell:hover .cell-img {
+  opacity: 0.4;
+}
+
+.cell:hover .card-title {
+  opacity: 1;
+}
+
+.cell::before, .cell::after {
+  content: '';
+  position: absolute;
+  top: 1.25em;
+  bottom: 1.25em;
+  right: 1.25em;
+  left: 1.25em;
+  opacity: 1;
+  -webkit-transition: -webkit-transform ease-out 250ms;
+  transition: -webkit-transform ease-out 250ms;
+  transition: transform ease-out 250ms;
+  transition: transform ease-out 250ms, -webkit-transform ease-out 250ms;
+}
+
+.cell-img {
+  position: relative;
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 275px;
+  width: 400px;
+  -webkit-transition: opacity ease-out 250ms;
+  transition: opacity ease-out 250ms;
+}
+
+.cell-img#child {
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: left bottom;
+     object-position: left bottom;
+  border-bottom-left-radius: 50px;
+  border-top-right-radius: 50px;
+}
+
+.cell-img#teen {
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: right bottom;
+     object-position: right bottom;
+  border-bottom-right-radius: 50px;
+  border-top-left-radius: 50px;
+}
+
+.cell-img#adult {
+  border-bottom-right-radius: 50px;
+  border-top-left-radius: 50px;
+}
+
+.cell-img#senior {
+  border-bottom-left-radius: 50px;
+  border-top-right-radius: 50px;
+}
+
+.card-title {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: white;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  opacity: 0;
+  -webkit-transition: opacity ease-out 250ms;
+  transition: opacity ease-out 250ms;
+}
+
+.card-title h2 {
+  font-size: 32px;
 }
 
 .login {
@@ -202,8 +540,7 @@
 
 .make-changes {
   width: 200px;
-  height: 300px;
-  background-color: pink;
+  height: auto;
 }
 
 .hold-container {

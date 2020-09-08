@@ -2,12 +2,13 @@ import React, {useEffect} from 'react';
 import {Link} from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
 import {getUser, logoutUser} from '../../ducks/authReducer';
+import {useHistory} from 'react-router-dom';
 import axios from 'axios';
 
 function Nav() {
     const dispatch = useDispatch()
     const {user} = useSelector((state) => state.authReducer)
-    
+    const history = useHistory()
 
     useEffect(() => {
         axios.get('/auth/user').then(res => {
@@ -23,6 +24,7 @@ function Nav() {
     const handleLogout = () => {
         axios.post('/auth/logout').then(() => {
             dispatch(logoutUser())
+            history.push('/')
             
         }).catch(err => console.log(err))
     }
@@ -30,14 +32,19 @@ function Nav() {
     return (
         <div className='nav'>
             {console.log(user)}
-            <h2><Link to="/">Home Logo</Link></h2>
+            <Link to="/"><div className="logo-box">
+                <div className="letters">
+                    <div className='d'></div>
+                    <div className='p'></div>
+                </div>
+            </div></Link>
             <div className='greeting'>
                 <h1>Denton Public Library</h1>
                     {user.firstName ? (
                         <div className='logged-in'>
                             <h3>Welcome back, {user.firstName}!</h3>
-                        <button onClick={handleLogout}>Logout</button>
-                    </div>
+                            <button onClick={handleLogout}>Log Out</button>
+                        </div>
                     ) : null}
                     
             </div>
