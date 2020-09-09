@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Link} from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
 import {getUser, logoutUser} from '../../ducks/authReducer';
@@ -9,6 +9,7 @@ function Nav() {
     const dispatch = useDispatch()
     const {user} = useSelector((state) => state.authReducer)
     const history = useHistory()
+    const [open, setMenu] = useState(false)
 
     useEffect(() => {
         axios.get('/auth/user').then(res => {
@@ -27,6 +28,10 @@ function Nav() {
             history.push('/')
             
         }).catch(err => console.log(err))
+    }
+
+    const toggleMenu = () => {
+        setMenu(!open)
     }
     
     return (
@@ -48,13 +53,19 @@ function Nav() {
                     ) : null}
                     
             </div>
-            <h2>Events</h2>
-            <h2><Link to="/catalog">Catalog</Link></h2>
-            <h2>Resources</h2>
-            {user.firstName ? (
-                <h2><Link to="/account">Account</Link></h2>
-            ) : <h2><Link to="/login">Log In</Link></h2>}
             
+            <div className="container" onClick={toggleMenu}>
+                {open ? <h2 className={open ? "change event" : "event"}>Events</h2> : null}
+                <div className={open ? "change bar1" : "bar1"}></div>
+                {open ? <h2 className={open ? "change cat" : "cat"}><Link to="/catalog" className="link">Catalog</Link></h2> : null}
+                <div className={open ? "change bar2" : "bar2"}></div>
+                {open ? <h2 className={open ? "change resources" : "resources"}>Resources</h2> : null}
+                <div className={open ? "change bar3" : "bar3"}></div>
+                {open ? [user.firstName ? (
+                <h2 className={open ? "change user" : "user"}><Link to="/account" className="link">Account</Link></h2>
+                ) : <h2 className={open ? "change user" : "user"}><Link to="/login" className="link">Log In</Link></h2>] : null}
+                {open ? <div className="close"></div> : null}
+            </div>
         </div>
     )
 }

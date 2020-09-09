@@ -43,17 +43,21 @@ function Catalog() {
     return (
         
         <div className="catalog">
-            <h1>Search our Collection</h1>
-            <input name="titleSearch" value={titleSearch} placeholder="Title" onChange={(e) => setTitle(e.target.value)}/>
-            <input name="authorSearch" value={authorSearch} placeholder="Author" onChange={(e) => setAuthor(e.target.value)}/>
-            <input name="isbnSearch" value={isbnSearch} placeholder="ISBN" onChange={(e) => setIsbn(e.target.value)}/>
-            <button onClick={search}>SEARCH</button>
-            <button onClick={clear}>CLEAR ALL</button>
-            {searching ? (
-                <div>{results.map(book => <Book key={book.book_id} book={book}/>)}</div>)
-                : <div>{inventory.map(book => <Book key={book.book_id} book={book}/>)}</div>
-            }
             
+            <h1>Search our Collection</h1>
+            <div className="search">
+                <input name="titleSearch" value={titleSearch} placeholder="Title" onChange={(e) => setTitle(e.target.value)}/>
+                <input name="authorSearch" value={authorSearch} placeholder="Author" onChange={(e) => setAuthor(e.target.value)}/>
+                <input name="isbnSearch" value={isbnSearch} placeholder="ISBN" onChange={(e) => setIsbn(e.target.value)}/>
+                <button onClick={search}>SEARCH</button>
+                <button onClick={clear}>CLEAR ALL</button>
+            </div>
+            <div>
+            {searching ? (
+                <div className='list'>{results.map(book => <Book key={book.book_id} book={book}/>)}</div>)
+                : <div className='list'>{inventory.map(book => <Book key={book.book_id} book={book}/>)}</div>
+            }
+            </div>
             
           
         </div>

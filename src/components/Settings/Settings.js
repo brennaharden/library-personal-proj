@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
 import axios from 'axios';
 import {v4 as randomString} from 'uuid';
-import {useSelector} from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
+import {getUser} from '../../ducks/authReducer';
 import {useDropzone} from 'react-dropzone';
 
 function Settings() {
@@ -9,7 +10,8 @@ function Settings() {
     const {id, img} = user
     const [imgUrl, setUrl] = useState(`${img}`)
     const [isUploading, setUploading] = useState(false)
- 
+    const dispatch = useDispatch()
+
     const {getRootProps, getInputProps} = useDropzone({
         accept: "image/*",
         multiple: false,
@@ -41,7 +43,16 @@ function Settings() {
         }
         axios.put(signedRequest, file, options).then(() => {
             setUrl(url)
-            axios.put(`/api/user`, {id, url})
+            axios.put(`/api/user`, {id, url}).then(() => {
+                axios.get('/auth/user').then(res => {
+                    console.log(res.data)
+                    dispatch(getUser(res.data))
+                }).catch(err => {
+                    if (err.response.status !== 401) {
+                        console.log(err)
+                    }
+                })
+            })
             setUploading(false)
         }).catch(err => {
             setUploading(false)
@@ -51,16 +62,22 @@ function Settings() {
                 alert(`Error: ${err.status}\n ${err.stack}`)
             }
         })
+        
     }
+
+
 
     return (
         <div className="settings">
-            <h1>Preview</h1>
-            <img src={imgUrl} alt="profile preview" width="300px"/>
+            
+            <header>
+            <h1>My Settings</h1>
+            </header>
+            <img className="preview" src={(img === null) ? `https://www.pngitem.com/pimgs/m/30-307416_profile-icon-png-image-free-download-searchpng-employee.png` : `${imgUrl}`} alt="profile preview" width="300px"/>
             <div 
                  {...getRootProps({className: 'dropzone'})}>
                 <input {...getInputProps()} />
-                {isUploading ? <p>Please Wait...</p> : <p>Drop File or Click Here</p>}
+                {isUploading ? <p>Please Wait...</p> : <p>Change Profile Picture:<br/><br/>Drop File or Click Here</p>}
             </div>
             
 

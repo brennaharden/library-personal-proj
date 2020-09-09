@@ -3,12 +3,9 @@
     flex-direction: column;
     height: calc(100vh - 150px);
     width: 100vw;
+    background-color: rgb(123, 172, 144);
     header {
-        height: 100px;
-        @include flexLeft(column, center);
-        font-family: 'Questrial', sans-serif;
-        font-size: 28px;
-        padding-left: 35px;
+        @include header();
     }
     
 }
@@ -17,18 +14,20 @@
     display: flex;
     width: 100%;
     flex-direction: row;
-    padding-left: 25px;
+    padding-left: 40px;
 }
 
 .make-changes {
     width: 200px;
     height: auto;
-    
+    @include left-point();
+    -webkit-box-shadow: 0px 5px 15px 4px rgb(71, 117, 106);
+    box-shadow: 0px 5px 15px 4px rgb(71, 117, 106);
 }
 
 .hold-container {
     width: 500px;
-    margin-left: 25px;
+    margin-left: 30px;
     font-family: 'Questrial', sans-serif;
 }
 
@@ -43,6 +42,7 @@
     border: solid 1px black;
     margin-top: 10px;
     position: relative;
+    background-color: rgb(253, 253, 246);
     img {
         width: 50px;
         margin: 10px;
@@ -61,9 +61,3 @@
     }
 }
 
-.dropzone {
-    height: 300px;
-    width: 300px;
-    border: dashed, 3px;
-    background-color: rgb(177, 175, 175);
-}

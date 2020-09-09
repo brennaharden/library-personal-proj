@@ -14,9 +14,22 @@ function RegForm() {
     const [pin, setPin] = useState('')
     const [resident, setResident] = useState(true)
 
+    const welcomeMessage = () => {
+        const message = `Welcome to Denton Public Library, ${firstName}!
+        Remember to bring photo ID and proof of residence with you on your first visit to your local branch. Until then, enjoy our online resources!
+        Sincerely,
+        Your Librarians`
+        const title = `Welcome, New Patron!`
+        const image = 'https://png.pngitem.com/pimgs/s/7-77375_computer-icons-book-clip-art-stack-of-books.png'
+        axios.post('/api/email', {message, title, email, image}).then(() => {
+            console.log('Email Sent Successfully')
+        }).catch(err => console.log(err))
+    }
+    
     const handleRegister = () => {
         axios.post('/auth/register', {firstName, lastName, email, password, pin, resident}).then((res) => {
         dispatch(loginUser(res.data))
+        welcomeMessage()
         history.push("/account")
         }).catch(err => {
             console.log(err)

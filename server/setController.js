@@ -38,6 +38,7 @@ module.exports = {
         const db = req.app.get('db');
         const {id, url} = req.body
         await db.update_img(id, url)
+        req.session.user.img = url
         res.status(200).send('Profile image updated successfully.')
     }
 }

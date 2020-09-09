@@ -7,6 +7,15 @@ $mainFont : 'Roboto', sans-serif;
     align-items: baseline;
     flex-direction: $direction;
 }
+
+@mixin header {
+    height: 100px;
+    @include flexLeft(column, center);
+    font-family: 'Questrial', sans-serif;
+    font-size: 28px;
+    padding-left: 35px;
+}
+
 @mixin left-point {
     border-bottom-left-radius: 50px;
     border-top-right-radius: 50px;
@@ -64,5 +73,6 @@ $mainFont : 'Roboto', sans-serif;
 @import './register';
 @import './catalog';
 @import './account';
+@import './settings';
 
 

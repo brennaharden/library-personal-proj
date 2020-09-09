@@ -31,7 +31,7 @@ function Account() {
         <div className="account">
             <header>My Account</header>
             <div className="big-boy">
-            <Link to="/settings"><img className="make-changes" alt="click for settings"src={img}/></Link>
+    <Link to="/settings"><img className="make-changes" alt="click for settings"src={(img === null) ? `https://www.pngitem.com/pimgs/m/30-307416_profile-icon-png-image-free-download-searchpng-employee.png` : `${img}`}/></Link>
                 <div className="hold-container">
                     <h1>CURRENT HOLDS</h1>
                     {holds.map(hold => <Hold key={hold.id} hold={hold} delete={deleteHold}/>)}

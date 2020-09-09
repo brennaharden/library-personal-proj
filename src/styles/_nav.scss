@@ -13,7 +13,11 @@
     background: rgb(117, 154, 184);
     font-family: $mainFont;
     color: white;
+    position: relative;
     .logo-box {
+        position: absolute;
+        left: 5%;
+        top: 10%;
         height: 120px;
         width: 120px;
         background-image: linear-gradient(25deg, #ff8652 10%, #eb4444 10%, #eb4444 20%, #d67b71 20%, #d67b71 30%, #ffb190 30%, #ffb190 40%, #f2994a 40%, #f2994a 50%, #ff8652 50%, #ff8652 60%, #eb4444 60%, #eb4444 70%, #d67b71 70%, #d67b71 80%, #ffb190 80%, #ffb190 90%, #f2994a 90%, #f2994a 100%);
@@ -77,6 +81,8 @@
     }
 
     .greeting {
+        position: absolute;
+        left: 20%;
         font-family: 'Questrial', sans-serif;
     }
 
@@ -107,4 +113,74 @@
             border-color: rgb(131, 63, 131);
         }
     }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        right: 5%;
+        cursor: pointer;
+      }
+
+      .link {
+          text-decoration: none;
+          color: white;
+      }
+      
+      .bar1, .bar2, .bar3 {
+        width: 80px;
+        height: 15px;
+        background-color: white;
+        margin: 8px;
+        transition: 0.5s;
+      }
+
+      .close {
+          position: absolute;
+          height: 50px;
+          width: 50px;
+          top: 20%;
+          border-radius: 50%;
+          border: 5px solid white;
+      }
+
+      .change.event {
+        -webkit-transform: translate(-25vw, 50px);
+        transform: translate(-29vw, 50px);
+      }
+      
+      .change.bar1 {
+        -webkit-transform: translate(-410px, 30px) rotate(-450deg);
+        transform: translate(-28vw, 35px) rotate(-450deg);
+        height: 5px;
+      }
+
+      .change.cat {
+        -webkit-transform: translate(-21vw, 10px);
+        transform: translate(-23vw, 12px);
+      }
+
+      .change.bar2 {
+        -webkit-transform: translate(-310px, 5px) rotate(-450deg);
+        transform: translate(-21vw, -3px) rotate(-450deg);
+        height: 5px;
+      }
+
+      .change.resources {
+        -webkit-transform: translate(-25vw, 50px);
+        transform: translate(-16vw, -25px);
+      }
+
+      .change.bar3 {
+        -webkit-transform: translate(-150px, -20px) rotate(-450deg);
+        transform: translate(-13vw, -40px) rotate(-450deg);
+        height: 5px;
+      }
+
+      .change.user {
+        -webkit-transform: translate(-25vw, 50px);
+        transform: translate(-8vw, -63px);
+      }
+
+      
 }
