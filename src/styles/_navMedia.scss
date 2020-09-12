@@ -1,0 +1,100 @@
+@media (max-width: 768px){
+    .nav {
+        .greeting {
+            left: 25%;
+        }
+
+        .container {
+            right: 6%;
+            top: 29px;
+            height: 250px;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .menu-items {
+            display: none;
+        }
+
+        .change.menu-items {
+            display: none;
+        }
+
+        .event, .resources, .cat, .user {
+            margin-top: 15px;
+            font-size: 26px;
+        }
+
+        .user {
+            width: fit-content;
+        }
+
+        .link {
+            font-size: 26px;
+            &:hover {
+                font-size: 26px;
+                font-weight: 700;
+            }
+        }
+
+        .change.hamburger {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: fit-content;
+            &::before {
+                display: none;
+            }
+            &::after {
+                display: none;
+            }
+        }
+
+        .change.bar1 {
+            transform: translate(0px, 28px) rotate(90deg);
+            height: 5px;
+            transition: 0.5s;
+        }
+
+        .change.bar2 {
+            height: 5px;
+            width: 25px;
+            transform: translate(-7px, 40px) rotate(45deg);
+            transition: 0.5s;
+        }
+
+        .change.bar3 {
+            height: 5px;
+            width: 25px;
+            transform: translate(8px, 19px) rotate(-45deg);
+            transition: 0.5s;
+        }
+
+        .dropdown {
+            display: initial;
+            display: flex;
+            height: 170px;
+            width: 150px;
+            flex-direction: column;
+            align-items: flex-end;
+            margin-top: 35px;
+            opacity: 0;
+            
+        }
+
+        .change.dropdown {
+            display: initial;
+            display: flex;
+            height: 180px;
+            width: 150px;
+            flex-direction: column;
+            align-items: flex-end;
+            margin-top: 55px;
+            opacity: 1;
+            transition: 1s;
+            transition-delay: 0.5s;
+        }
+    }
+}

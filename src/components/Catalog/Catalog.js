@@ -13,7 +13,7 @@ function Catalog() {
 
 
     useEffect(() => {
-        axios.get('https://www.librarything.com/api_getdata.php?userid=libsimbah&key=2719823726&responseType=json').then(res => {
+         axios.get('https://www.librarything.com/api_getdata.php?userid=libsimbah&key=2719823726&responseType=json').then(res => {
             let listArray = []
             for (let elem in res.data.books) {
                 listArray.push(res.data.books[elem])
@@ -22,7 +22,6 @@ function Catalog() {
             setInventory(listArray)
         }).catch(err => console.log(err))
     }, [])
-
 
     const search = () => {
         const regex = new RegExp (`${titleSearch}`, "gmi")
@@ -52,12 +51,13 @@ function Catalog() {
                 <button onClick={search}>SEARCH</button>
                 <button onClick={clear}>CLEAR ALL</button>
             </div>
-            <div>
+
+            {inventory.length ? <div>
             {searching ? (
                 <div className='list'>{results.map(book => <Book key={book.book_id} book={book}/>)}</div>)
                 : <div className='list'>{inventory.map(book => <Book key={book.book_id} book={book}/>)}</div>
             }
-            </div>
+            </div> : <div className="empty"></div>}
             
           
         </div>

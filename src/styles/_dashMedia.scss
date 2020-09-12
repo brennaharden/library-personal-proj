@@ -1,0 +1,30 @@
+@media (max-width: 768px){
+    .dash {
+        height: fit-content;
+    }
+    .cell {
+        
+        &#adult {
+            @include left-point()
+        }
+        &#senior {
+            @include right-point()
+        }
+    }
+
+    .cell-img {
+        &#adult {
+            border-bottom-left-radius: 50px;
+            border-top-right-radius: 50px;
+            border-bottom-right-radius: 0;
+            border-top-left-radius: 0;
+        }
+
+        &#senior {
+            border-bottom-left-radius: 0;
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 50px;
+            border-top-left-radius: 50px;
+        }
+    }
+}

@@ -1,5 +1,30 @@
-$primaryBtn : rgb(10, 110, 110);
 $mainFont : 'Roboto', sans-serif;
+@mixin button() {
+    border: 1px solid rgb(18, 97, 170);
+    border-radius: 0.25rem;
+    background: rgb(117, 154, 184);
+    line-height: 1.2;
+    white-space: nowrap;
+    text-decoration: none;
+    padding: 0.25rem 0.5rem;
+    margin: 0.25rem;
+    cursor: pointer;
+    font-family: 'Questrial', sans-serif;
+    color: white;
+    &:hover {
+         background: #d67b71;
+        border-color: rgb(131, 63, 131);
+    }
+}
+
+@mixin flexCenter($direction, $justify) {
+    
+    display: flex;
+    justify-content: $justify;
+    align-items: center;
+    flex-direction: $direction;
+}
+
 @mixin flexLeft($direction, $justify) {
     
     display: flex;
@@ -66,13 +91,34 @@ $mainFont : 'Roboto', sans-serif;
         transform: scale(1, 1);
     }
 }
+@mixin circle($opacity){
+    position: absolute;
+        content: '';
+        height: 40px;
+        width: 40px;
+        border: 5px solid white;
+        border-radius: 50%;
+        opacity: $opacity;
+}
+@mixin equis($opacity) {
+    content: 'x';
+        position: absolute;
+        font-family: 'Questrial', sans-serif;
+        font-weight: 700;
+        font-size: 45px;
+        opacity: $opacity;
+}
 
 @import './nav';
+@import './navMedia';
 @import './dash';
+@import './dashMedia';
 @import './login';
 @import './register';
 @import './catalog';
+@import './catalogMedia';
 @import './account';
+@import './accountMedia';
 @import './settings';
 
 

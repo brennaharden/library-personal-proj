@@ -7,6 +7,10 @@
     }
 }
 
+.set-grid {
+    display: flex;
+}
+
 .preview {
     height: auto;
     width: 200px;
@@ -34,3 +38,64 @@
     }
     
 }
+
+.option-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 200px;
+    height: 250px;
+    margin-left: 25px;
+    font-family: $mainFont;
+    color: white;
+}
+
+.branch-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 300px;
+    &::before {
+        content: 'Pickup Branch:';
+    }
+    .branch {
+        width: 153px;
+    }
+}
+
+.checkbox-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 300px;
+    &::before {
+        content: 'Change Password:';
+
+    }
+    
+}
+
+.old-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 300px;
+    &::before {
+        content: 'Old Password:';
+        margin-right: 5px;
+    }
+}
+
+.new-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 300px;
+    &::before {
+        content: 'New Password:';
+        margin-right: 5px;
+    }
+}
+
+
+

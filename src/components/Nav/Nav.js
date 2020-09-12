@@ -64,9 +64,17 @@ function Nav() {
                     ) : <h2 className={open ? "change user" : "user"}><Link to="/login" className="link">Log In</Link></h2>}
                 </div>
                 <div className={open ? "change hamburger" : "hamburger"} onClick={toggleMenu}>
-                <div className={open ? "change bar1" : "bar1"}></div>
-                <div className={open ? "change bar2" : "bar2"}></div>
-                <div className={open ? "change bar3" : "bar3"}></div>
+                    <div className={open ? "change bar1" : "bar1"}></div>
+                    <div className={open ? "change bar2" : "bar2"}></div>
+                    <div className={open ? "change bar3" : "bar3"}></div>
+                </div>
+                <div className={open ? "change dropdown" : "dropdown"}>
+                    <h2 className={open ? "change event" : "event"}>Events</h2>
+                    <h2 className={open ? "change cat" : "cat"}><Link to="/catalog" className="link">Catalog</Link></h2>
+                    <h2 className={open ? "change resources" : "resources"}>Resources</h2>
+                    {user.firstName ? (
+                        <h2 className={open ? "change user" : "user"}><Link to="/account" className="link">Account</Link></h2>
+                    ) : <h2 className={open ? "change user" : "user"}><Link to="/login" className="link">Log In</Link></h2>}
                 </div>
             </div>
         </div>

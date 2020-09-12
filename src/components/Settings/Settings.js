@@ -69,18 +69,38 @@ function Settings() {
 
     return (
         <div className="settings">
-            
             <header>
             <h1>My Settings</h1>
             </header>
-            <img className="preview" src={(img === null) ? `https://www.pngitem.com/pimgs/m/30-307416_profile-icon-png-image-free-download-searchpng-employee.png` : `${imgUrl}`} alt="profile preview" width="300px"/>
-            <div 
-                 {...getRootProps({className: 'dropzone'})}>
-                <input {...getInputProps()} />
-                {isUploading ? <p>Please Wait...</p> : <p>Change Profile Picture:<br/><br/>Drop File or Click Here</p>}
+            <div className="set-grid">
+                <div className="photo-box">
+                    <img className="preview" src={(img === null) ? `https://www.pngitem.com/pimgs/m/30-307416_profile-icon-png-image-free-download-searchpng-employee.png` : `${imgUrl}`} alt="profile preview" width="300px"/>
+                    <div 
+                         {...getRootProps({className: 'dropzone'})}>
+                        <input {...getInputProps()} />
+                        {isUploading ? <p>Please Wait...</p> : <p>Change Profile Picture:<br/><br/>Drop File or Click Here</p>}
+                    </div>
+                </div>
+                <div className="option-container">
+                    <div className="branch-wrapper">
+                        <select className="branch">
+                            <option>North Branch</option>
+                            <option>South Branch</option>
+                            <option>Emily Fowler Branch</option>
+                        </select>
+                    </div>
+                    <div className="checkbox-wrapper">
+                        <input name="" type="checkbox" className="checkbox"></input>
+                    </div>
+                    <div className="old-wrapper">
+                        <input placeholder="Old Password"></input>
+                    </div>
+                    <div className="new-wrapper">
+                        <input placeholder="New Password"></input>
+                    </div>
+                    <button>Save Changes</button>
+                </div>
             </div>
-            
-
         </div>
     )
 }
