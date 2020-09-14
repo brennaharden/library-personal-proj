@@ -28,6 +28,7 @@ function Account() {
     }
 
     return (
+        <div className="act-wrapper">
         <div className="account">
             <header>My Account</header>
             <div className="big-boy">
@@ -37,6 +38,7 @@ function Account() {
                     {holds.map(hold => <Hold key={hold.id} hold={hold} delete={deleteHold}/>)}
                 </div>
             </div>
+        </div>
         </div>
     )
 }

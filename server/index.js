@@ -39,5 +39,6 @@ app.delete('/api/holds/:holdId/:id', holdCtrl.deleteHold)
 app.get('/api/signs3', setCtrl.config)
 app.put('/api/user', setCtrl.saveUrl)
 app.post('/api/email', mailCtrl.email)
+app.put('/api/user', setCtrl.setBranch)
 
 app.listen(SERVER_PORT, () => console.log(`talking bout me & you in ${SERVER_PORT}`))

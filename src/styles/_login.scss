@@ -1,5 +1,54 @@
+.login-wrapper {
+    background-color: rgb(136, 132, 125);
+    height: calc(100vh - 150px);
+}
+
 .login {
     @include flexCenter(column, space-evenly);
     height: calc(100vh - 150px);
-    font-family: $mainFont;
+    font-family: 'Questrial', sans-serif;
+    background-image: url('../media/emily fowler tree.jpg');
+    background-size: 120%, auto;
+    background-position: center;
+    color: ivory;
+    animation: fadein 2s;
+
+    @keyframes fadein {
+        from {opacity: 0;}
+        to {opacity: 1;}
+
+    }
+
+    .content-container {
+        @include flexCenter(column, space-evenly);
+        height: 635px;
+        width: 525px;;
+        background-color: rgba(131, 63, 131, 0.767);
+    }
+
+    input {
+        font-family: $mainFont;
+    }
+    
+    h1 {
+        font-size: 26px;
+    }
+
+    h2 {
+        font-size: 22px;
+    }
+
+
+    button {
+        @include button();
+    }
+
+    p {
+        text-align: center;
+    }
+
+    .link {
+        text-decoration: none;
+        color: white;
+    }
 }

@@ -1,6 +1,71 @@
 
+.reg-wrapper {
+    height: calc(100vh - 150px);
+    background-color: rgb(99, 99, 99);
+}
+
 .reg {
     @include flexCenter(column, space-evenly);
     height: calc(100vh - 150px);
-    font-family: $mainFont;
+    font-family: 'Questrial', sans-serif;
+    background-image: url('../media/fowler front desk.jpg');
+    background-size: 110%;
+    background-position: center;
+    animation: fadein 2s;
+    color: ivory;
+    text-align: center;
+
+    @keyframes fadein {
+        from {opacity: 0;}
+        to {opacity: 1;}
+
+    }
+
+    @media (max-width: 1100px) {
+        background-position: cover;
+        background-size: 115%;
+    }
+
+    @media (max-width: 970px) {
+        background-position: cover;
+        background-size: 120%;
+    }
+
+    @media (max-width: 905px) {
+        background-position: cover;
+        background-size: 125%;
+    }
+    @media (max-width: 860px) {
+        background-position: cover;
+        background-size: 130%;
+    }
+
+    @media (max-width: 835px) {
+        background-position: cover;
+        background-size: 140%;
+    }
+
+    .reg-form {
+        @include flexCenter(column, space-evenly);
+        height: 635px;
+        width: 465px;;
+        background-color: rgba(131, 63, 131, 0.767);
+    }
+
+    h1 {
+        font-size: 32px;
+    }
+
+    h2 {
+        font-size: 22px;
+    }
+
+    p {
+        width: 300px;
+        font-size: 16px;
+    }
+
+    button {
+        @include button ();
+    }
 }

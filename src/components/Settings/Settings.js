@@ -9,6 +9,7 @@ function Settings() {
     const {user} = useSelector((state) => state.authReducer)
     const {id, img} = user
     const [imgUrl, setUrl] = useState(`${img}`)
+    
     const [isUploading, setUploading] = useState(false)
     const dispatch = useDispatch()
 
@@ -65,9 +66,12 @@ function Settings() {
         
     }
 
+   
+
 
 
     return (
+        <div className="set-wrapper">
         <div className="settings">
             <header>
             <h1>My Settings</h1>
@@ -83,10 +87,12 @@ function Settings() {
                 </div>
                 <div className="option-container">
                     <div className="branch-wrapper">
-                        <select className="branch">
-                            <option>North Branch</option>
-                            <option>South Branch</option>
-                            <option>Emily Fowler Branch</option>
+                        <select 
+                        className="branch"
+                        >
+                            <option value='2'>North Branch</option>
+                            <option value='3'>South Branch</option>
+                            <option value='1'>Emily Fowler Branch</option>
                         </select>
                     </div>
                     <div className="checkbox-wrapper">
@@ -98,9 +104,10 @@ function Settings() {
                     <div className="new-wrapper">
                         <input placeholder="New Password"></input>
                     </div>
-                    <button>Save Changes</button>
+                    <button >Save Changes</button>
                 </div>
             </div>
+        </div>
         </div>
     )
 }

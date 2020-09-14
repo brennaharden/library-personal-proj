@@ -26,8 +26,11 @@ function Auth() {
     }
     
     return (
+        <div className='login-wrapper'>
         <div className='login'>
+            <div className='content-container'>
             <h1>Welcome!</h1>
+            <h2>Please sign in with your email and password:</h2>
             <input
                 placeholder='Email'
                 value={email}
@@ -37,20 +40,24 @@ function Auth() {
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}/>
-            <h1>OR</h1>
+            <h2>-OR-</h2>
+            <h2>Sign in with your card number and pin:</h2>
             <input
                 placeholder='Card Number'
                 value={cardNum}
                 onChange={(e) => setCardNum(e.target.value)}/>
             <input
                 placeholder='4 Digit Pin'
+                maxLength='4'
                 value={pin}
                 type="password"
                 onChange={(e) => setPin(e.target.value)}/>
             
             <button onClick={handleLogin}>LOGIN</button>
             <p>New to DPL?<br/>Create an account today!</p>
-            <button><Link to="/register">NEW PATRON</Link></button>
+            <button><Link to="/register" className="link">NEW PATRON</Link></button>
+            </div>
+        </div>
         </div>
     )
 }

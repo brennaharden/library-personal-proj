@@ -38,8 +38,11 @@ function RegForm() {
     }
         
     return (
+        <div className='reg-wrapper'>
         <div className="reg">
-            <h1>RegForm</h1>
+            <div className='reg-form'>
+            <h1>Join Our Community</h1>
+            <h2>To register as a new patron,<br/> please complete the fields below.</h2>
             <input 
                 placeholder='First Name'
                 value={firstName}
@@ -54,17 +57,26 @@ function RegForm() {
                 onChange={(e) => setEmail(e.target.value)}/>
             <input
                 placeholder='Password'
+                type='password'
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}/>
             <input
                 placeholder='4 Digit Pin'
+                type='password'
+                maxLength='4'
                 value={pin}
                 onChange={(e) => setPin(e.target.value)}/>
-            <input
-                placeholder='Resident? true or false'
-                value={resident}
-                onChange={(e) => setResident(e.target.value)}/>
+            <p>Are you a resident of Denton County?*</p>
+            <select 
+            value={resident}
+            onChange={(e) => setResident(e.target.value)}>
+                <option value={true}>Resident</option>
+                <option value={false}>Non-Resident</option>
+                </select>
+            <p>*Non-residents must pay a $40 annual fee for access to library resources.</p>
             <button onClick={handleRegister}>SUBMIT</button>
+            </div>
+        </div>
         </div>
     )
 }

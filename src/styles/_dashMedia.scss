@@ -1,13 +1,34 @@
-@media (max-width: 768px){
+@media (max-width: 900px){
     .dash {
         height: fit-content;
     }
     .cell {
         
         &#adult {
+            border-top-left-radius: 0px;
+            border-bottom-right-radius: 0px;
+            &::before{
+                border-left: none;
+                border-top-left-radius: 0px;
+                
+            }
+            &::after{
+                border-bottom-right-radius: 0px;
+                border-right: none;
+            }
             @include left-point()
         }
         &#senior {
+            border-top-right-radius: 0px;
+            border-bottom-left-radius: 0px;
+            &::before{
+                border-right: none;
+                border-top-right-radius: 0px;
+            }
+            &::after{
+                border-left: none;
+                border-bottom-left-radius: 0px;
+            }
             @include right-point()
         }
     }

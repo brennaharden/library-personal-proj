@@ -40,9 +40,8 @@ function Catalog() {
     
     
     return (
-        
+        <div className="catalog-wrapper">
         <div className="catalog">
-            
             <h1>Search our Collection</h1>
             <div className="search">
                 <input name="titleSearch" value={titleSearch} placeholder="Title" onChange={(e) => setTitle(e.target.value)}/>
@@ -58,8 +57,7 @@ function Catalog() {
                 : <div className='list'>{inventory.map(book => <Book key={book.book_id} book={book}/>)}</div>
             }
             </div> : <div className="empty"></div>}
-            
-          
+        </div>
         </div>
     )
 }

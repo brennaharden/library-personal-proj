@@ -40,5 +40,11 @@ module.exports = {
         await db.update_img(id, url)
         req.session.user.img = url
         res.status(200).send('Profile image updated successfully.')
+    },
+    setBranch: async (req, res) => {
+        const db = req.app.get('db');
+        const {id, branch} = req.body
+        await db.update_branch(id, branch)
+        res.status(200).send('User branch updated successfully.')
     }
 }

@@ -1,3 +1,9 @@
+.act-wrapper {
+    height: calc(100vh - 150px);
+    width: 100vw;
+    background-color: rgb(123, 172, 144);
+}
+
 .account {
     display: flex;
     flex-direction: column;
@@ -6,6 +12,13 @@
     background-color: rgb(123, 172, 144);
     header {
         @include header();
+    }
+    animation: fadein 2s;
+
+    @keyframes fadein {
+        from {opacity: 0;}
+        to {opacity: 1;}
+
     }
     
 }

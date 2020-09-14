@@ -1,10 +1,28 @@
-.settings{
-    height: 100vh;
+.set-wrapper {
+    height: calc(100vh - 150px);
     width: 100vw;
     background-color: rgb(123, 172, 144);
+}
+
+.settings{
+    height: calc(100vh - 150px);
+    width: 100vw;
+    background-color: rgb(123, 172, 144);
+    font-size: 20px;
     header {
         @include header();
     }
+    animation: fadein 2s;
+
+    @keyframes fadein {
+        from {opacity: 0;}
+        to {opacity: 1;}
+
+    }
+}
+
+button {
+    @include button()
 }
 
 .set-grid {
@@ -34,6 +52,7 @@
     cursor: pointer;
     p {
         font-family: $mainFont;
+        font-size: 18px;
         color: rgb(18, 97, 170);
     }
     
