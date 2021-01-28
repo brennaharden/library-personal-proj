@@ -2,7 +2,7 @@
     display: flex;
     justify-content: center;
     width: 100vw;
-    height: calc(100vh - 120px);
+    height: 100vh;
     background-color: rgb(7, 40, 71);
     padding-top: 10px;
 }
@@ -15,7 +15,7 @@
         to {opacity: 1;}
 
     }
-    height: 100%;
+    height: calc(100vh - 120px);
     width: 1200px;
     display: flex;
     flex-wrap: wrap;

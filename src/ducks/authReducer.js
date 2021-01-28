@@ -11,7 +11,7 @@ const LOGOUT_USER = 'LOGOUT_USER'
 export function loginUser(payload){
     return {
         type: LOGIN_USER,
-        payload
+        payload: payload
     }
 }
 

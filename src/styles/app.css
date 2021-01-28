@@ -482,7 +482,7 @@
       -ms-flex-pack: center;
           justify-content: center;
   width: 100vw;
-  height: calc(100vh - 120px);
+  height: 100vh;
   background-color: #072847;
   padding-top: 10px;
 }
@@ -491,7 +491,7 @@
   background-color: #072847;
   -webkit-animation: fadein 2s;
           animation: fadein 2s;
-  height: 100%;
+  height: calc(100vh - 120px);
   width: 1200px;
   display: -webkit-box;
   display: -ms-flexbox;

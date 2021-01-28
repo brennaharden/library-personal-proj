@@ -8,8 +8,7 @@ import RegForm from './components/RegForm/RegForm';
 import Settings from './components/Settings/Settings';
 import Results from './components/Results/Results';
 
-export default (
-    <Switch>
+export default <Switch>
         <Route exact path="/" component={Dash}/>
         <Route path="/login" component={Auth}/>
         <Route path="/register" component={RegForm}/>
@@ -18,4 +17,4 @@ export default (
         <Route path="/settings" component={Settings}/>
         <Route path="/results" component={Results}/>
     </Switch>
-);
+;
