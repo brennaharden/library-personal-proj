@@ -1,35 +1,115 @@
+@keyframes peekaboo {
+    0% { opacity: 0; }
+    33% { opacity: 1; }
+    66% { opacity: 1; }
+    100% {opacity: 0; }
+}
+
+@keyframes iseeyou {
+    0% { opacity: 1; }
+    43% { opacity: 0.4; }
+    73% { opacity: 0.4; }
+    100% {opacity: 1; }
+}
+
 @media (max-width: 900px){
     .dash {
         height: fit-content;
+        padding-bottom: 5px;
     }
     .cell {
-        
-        &#adult {
+        &#child {
             border-top-left-radius: 0px;
             border-bottom-right-radius: 0px;
             &::before{
+                transform: none;
+                animation: peekaboo 4s infinite;
+                z-index: 1;
                 border-left: none;
                 border-top-left-radius: 0px;
                 
             }
             &::after{
+                transform: none;
+                animation: peekaboo 4s infinite;
                 border-bottom-right-radius: 0px;
                 border-right: none;
             }
-            @include left-point()
+            @include left-point-mobile()
+        }
+        &#teen {
+            border-top-right-radius: 0px;
+            border-bottom-left-radius: 0px;
+            &::before{
+                transform: none;
+                animation: peekaboo 4s infinite;
+                z-index: 1;
+                border-right: none;
+                border-top-right-radius: 0px;
+            }
+            &::after{
+                transform: none;
+                animation: peekaboo 4s infinite;
+                border-left: none;
+                border-bottom-left-radius: 0px;
+            }
+            @include right-point-mobile()
+        }
+        &#adult {
+            border-top-left-radius: 0px;
+            border-bottom-right-radius: 0px;
+            &::before{
+                transform: none;
+                animation: peekaboo 4s infinite;
+                z-index: 1;
+                border-left: none;
+                border-top-left-radius: 0px;
+                
+            }
+            &::after{
+                transform: none;
+                animation: peekaboo 4s infinite;
+                border-bottom-right-radius: 0px;
+                border-right: none;
+            }
+            @include left-point-mobile()
         }
         &#senior {
             border-top-right-radius: 0px;
             border-bottom-left-radius: 0px;
             &::before{
+                transform: none;
+                animation: peekaboo 4s infinite;
+                z-index: 1;
                 border-right: none;
                 border-top-right-radius: 0px;
             }
             &::after{
+                transform: none;
+                animation: peekaboo 4s infinite;
                 border-left: none;
                 border-bottom-left-radius: 0px;
             }
-            @include right-point()
+            @include right-point-mobile()
+        }
+
+        &::before,
+        &::after {
+            content: '';
+            position: absolute;
+            top: 1.25em;
+            bottom: 1.25em;
+            right: 1.25em;
+            left: 1.25em;
+            opacity: 1;
+            transition: transform ease-out 250ms;
+        }
+
+        .card-title {
+            animation: peekaboo 4s infinite;
+        }
+        .cell-img {
+        animation: iseeyou 4s infinite;
         }
     }
 
@@ -49,3 +129,112 @@
         }
     }
 }
+
+
+@media (max-width: 480px){
+    .cell {
+        height: 225px;
+        width: 325px;
+        margin: 15px;
+    }
+
+    .cell-img {
+        height: 225px;
+        width: 325px;
+    }
+    .cell {
+        &#child {
+            border-top-left-radius: 0px;
+            border-bottom-right-radius: 0px;
+            &::before{
+                transform: none;
+                animation: peekaboo 4s infinite;
+                z-index: 1;
+                border-left: none;
+                border-top-left-radius: 0px;
+                
+            }
+            &::after{
+                transform: none;
+                animation: peekaboo 4s infinite;
+                border-bottom-right-radius: 0px;
+                border-right: none;
+            }
+            @include left-point-mobile()
+        }
+        &#teen {
+            border-top-right-radius: 0px;
+            border-bottom-left-radius: 0px;
+            &::before{
+                transform: none;
+                animation: peekaboo 4s infinite;
+                z-index: 1;
+                border-right: none;
+                border-top-right-radius: 0px;
+            }
+            &::after{
+                transform: none;
+                animation: peekaboo 4s infinite;
+                border-left: none;
+                border-bottom-left-radius: 0px;
+            }
+            @include right-point-mobile()
+        }
+        &#adult {
+            border-top-left-radius: 0px;
+            border-bottom-right-radius: 0px;
+            &::before{
+                transform: none;
+                animation: peekaboo 4s infinite;
+                z-index: 1;
+                border-left: none;
+                border-top-left-radius: 0px;
+                
+            }
+            &::after{
+                transform: none;
+                animation: peekaboo 4s infinite;
+                border-bottom-right-radius: 0px;
+                border-right: none;
+            }
+            @include left-point-mobile()
+        }
+        &#senior {
+            border-top-right-radius: 0px;
+            border-bottom-left-radius: 0px;
+            &::before{
+                transform: none;
+                animation: peekaboo 4s infinite;
+                z-index: 1;
+                border-right: none;
+                border-top-right-radius: 0px;
+            }
+            &::after{
+                transform: none;
+                animation: peekaboo 4s infinite;
+                border-left: none;
+                border-bottom-left-radius: 0px;
+            }
+            @include right-point-mobile()
+        }
+
+        &::before,
+        &::after {
+            content: '';
+            position: absolute;
+            top: 1.25em;
+            bottom: 1.25em;
+            right: 1.25em;
+            left: 1.25em;
+            opacity: 1;
+            transition: transform ease-out 250ms;
+        }
+
+        .card-title {
+            animation: peekaboo 4s infinite;
+        }
+        .cell-img {
+        animation: iseeyou 4s infinite;
+        }
+    }
+}   

@@ -45,6 +45,7 @@ $mainFont : 'Roboto', sans-serif;
     border-bottom-left-radius: 50px;
     border-top-right-radius: 50px;
     &::before{
+        z-index: 1;
         transform: scale(0, 1);
         border-top: 2px solid white;
         border-right: 2px solid white;
@@ -70,6 +71,7 @@ $mainFont : 'Roboto', sans-serif;
     border-bottom-right-radius: 50px;
     border-top-left-radius: 50px;
     &::before{
+        z-index: 1;
         transform: scale(0, 1);
         border-top: 2px solid white;
         border-left: 2px solid white;
@@ -91,6 +93,43 @@ $mainFont : 'Roboto', sans-serif;
         transform: scale(1, 1);
     }
 }
+
+@mixin left-point-mobile {
+    border-bottom-left-radius: 50px;
+    border-top-right-radius: 50px;
+    &::before{
+        transform: none;
+        border-top: 2px solid white;
+        border-right: 2px solid white;
+        border-top-right-radius: 50px;
+    }
+    
+    &::after{  
+        transform: none;
+        border-left: 2px solid white;
+        border-bottom: 2px solid white;
+        border-bottom-left-radius: 50px;
+    }
+}
+
+@mixin right-point-mobile {
+    border-bottom-right-radius: 50px;
+    border-top-left-radius: 50px;
+    &::before{
+        transform: none;
+        border-top: 2px solid white;
+        border-left: 2px solid white;
+        border-top-left-radius: 50px;
+    }
+    
+    &::after{  
+        transform: none;
+        border-right: 2px solid white;
+        border-bottom: 2px solid white;
+        border-bottom-right-radius: 50px;
+    }
+}
+
 @mixin circle($opacity){
     position: absolute;
         content: '';

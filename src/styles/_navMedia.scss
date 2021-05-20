@@ -115,3 +115,24 @@
         }
     }
 }
+
+@media (max-width: 480px){
+    .nav{
+        height: 225px;
+    }
+
+    .nav .greeting{
+        width: 100%;
+        left: 0;
+        top: 165px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .nav h1 {
+        font-size: 36px;
+    }
+
+    
+}
